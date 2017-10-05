@@ -4,13 +4,14 @@
 #
 Name     : retry_decorator
 Version  : 1.1.0
-Release  : 7
+Release  : 8
 URL      : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
 Source0  : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
 Summary  : Retry Decorator
 Group    : Development/Tools
 License  : MIT
 Requires: retry_decorator-legacypython
+Requires: retry_decorator-python3
 Requires: retry_decorator-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -27,6 +28,7 @@ Usage
 %package legacypython
 Summary: legacypython components for the retry_decorator package.
 Group: Default
+Requires: python-core
 
 %description legacypython
 legacypython components for the retry_decorator package.
@@ -36,9 +38,19 @@ legacypython components for the retry_decorator package.
 Summary: python components for the retry_decorator package.
 Group: Default
 Requires: retry_decorator-legacypython
+Requires: retry_decorator-python3
 
 %description python
 python components for the retry_decorator package.
+
+
+%package python3
+Summary: python3 components for the retry_decorator package.
+Group: Default
+Requires: python3-core
+
+%description python3
+python3 components for the retry_decorator package.
 
 
 %prep
@@ -49,12 +61,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1505365787
+export SOURCE_DATE_EPOCH=1507171307
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1505365787
+export SOURCE_DATE_EPOCH=1507171307
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -70,5 +82,8 @@ echo ----[ mark ]----
 /usr/lib/python2*/*
 
 %files python
+%defattr(-,root,root,-)
+
+%files python3
 %defattr(-,root,root,-)
 /usr/lib/python3*/*
