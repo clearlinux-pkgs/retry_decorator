@@ -4,7 +4,7 @@
 #
 Name     : retry_decorator
 Version  : 1.1.0
-Release  : 8
+Release  : 9
 URL      : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
 Source0  : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
 Summary  : Retry Decorator
