@@ -14,7 +14,7 @@ Requires: retry_decorator-python3
 Requires: retry_decorator-python
 BuildRequires : pbr
 BuildRequires : pip
-BuildRequires : python-dev
+
 BuildRequires : python3-dev
 BuildRequires : setuptools
 
