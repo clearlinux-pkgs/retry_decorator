@@ -4,9 +4,9 @@
 #
 Name     : retry_decorator
 Version  : 1.1.0
-Release  : 23
-URL      : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
-Source0  : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
+Release  : 24
+URL      : https://files.pythonhosted.org/packages/95/7a/807ac21749ecd26ae3337c3069ed6ac8658b9fbc85f109e419a812b18ab7/retry_decorator-1.1.0.tar.gz
+Source0  : https://files.pythonhosted.org/packages/95/7a/807ac21749ecd26ae3337c3069ed6ac8658b9fbc85f109e419a812b18ab7/retry_decorator-1.1.0.tar.gz
 Summary  : Retry Decorator
 Group    : Development/Tools
 License  : MIT
@@ -55,7 +55,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546112229
+export SOURCE_DATE_EPOCH=1546112373
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
