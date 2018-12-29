@@ -4,19 +4,16 @@
 #
 Name     : retry_decorator
 Version  : 1.1.0
-Release  : 21
+Release  : 23
 URL      : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
 Source0  : http://pypi.debian.net/retry_decorator/retry_decorator-1.1.0.tar.gz
 Summary  : Retry Decorator
 Group    : Development/Tools
 License  : MIT
-Requires: retry_decorator-python3
-Requires: retry_decorator-python
-BuildRequires : pbr
-BuildRequires : pip
-
-BuildRequires : python3-dev
-BuildRequires : setuptools
+Requires: retry_decorator-license = %{version}-%{release}
+Requires: retry_decorator-python = %{version}-%{release}
+Requires: retry_decorator-python3 = %{version}-%{release}
+BuildRequires : buildreq-distutils3
 
 %description
 Usage
@@ -24,10 +21,18 @@ Usage
         
         Retry decorator
 
+%package license
+Summary: license components for the retry_decorator package.
+Group: Default
+
+%description license
+license components for the retry_decorator package.
+
+
 %package python
 Summary: python components for the retry_decorator package.
 Group: Default
-Requires: retry_decorator-python3
+Requires: retry_decorator-python3 = %{version}-%{release}
 
 %description python
 python components for the retry_decorator package.
@@ -50,18 +55,25 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1523300604
-python3 setup.py build -b py3
+export SOURCE_DATE_EPOCH=1546112229
+export MAKEFLAGS=%{?_smp_mflags}
+python3 setup.py build
 
 %install
 rm -rf %{buildroot}
-python3 -tt setup.py build -b py3 install --root=%{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/retry_decorator
+cp LICENSE.txt %{buildroot}/usr/share/package-licenses/retry_decorator/LICENSE.txt
+python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
 echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/retry_decorator/LICENSE.txt
 
 %files python
 %defattr(-,root,root,-)
