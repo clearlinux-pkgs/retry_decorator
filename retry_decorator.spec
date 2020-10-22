@@ -4,7 +4,7 @@
 #
 Name     : retry_decorator
 Version  : 1.1.1
-Release  : 32
+Release  : 33
 URL      : https://files.pythonhosted.org/packages/6e/e6/bedc75b264cbcbf6e6d0e5071d96d739f540fc09be31744a7a8824c02a8e/retry_decorator-1.1.1.tar.gz
 Source0  : https://files.pythonhosted.org/packages/6e/e6/bedc75b264cbcbf6e6d0e5071d96d739f540fc09be31744a7a8824c02a8e/retry_decorator-1.1.1.tar.gz
 Summary  : Retry Decorator
@@ -55,12 +55,11 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583942950
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1603403490
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
